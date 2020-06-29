@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private int number = 0;
-    private Button button;
+    private Button button,button2;
     private TextView textView;
 
     @Override
@@ -20,10 +20,18 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         textView.setText(String.valueOf(number));
         button = findViewById(R.id.button);
+        button2=findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textView.setText(String.valueOf(++number));
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                assert(number==0);
+                textView.setText(String.valueOf(--number));
             }
         });
     }
