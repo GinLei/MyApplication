@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        number=savedInstanceState.getInt("NUMBER");
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
         textView.setText(String.valueOf(number));
@@ -34,5 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(String.valueOf(--number));
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("NUMBER",number);
     }
 }
