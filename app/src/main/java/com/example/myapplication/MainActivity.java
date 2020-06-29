@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(String.valueOf(--number));
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.menu_reset){
+           number=0;
+           textView.setText(String.valueOf(number));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
